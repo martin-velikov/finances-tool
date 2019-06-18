@@ -1,0 +1,26 @@
+pagrant:
+  sync:
+    exclude:
+      - .vagrant/
+      - .git/
+      - ansible/
+      - vagrant/
+      - vendor/*
+      - var/*
+      - public/images/*
+      - public/media/*
+      - public/build/*
+      - public/bundles/*
+      - node_modules/*
+  extra_vars:
+    php_fpm_version: '7.2'
+    nginx_sites_default_root: /app/public
+    nginx_http_params:
+      - client_max_body_size 11m
+    php_fpm_ini:
+      - option: "post_max_size"
+        section: "PHP"
+        value: "11M"
+      - option: "upload_max_filesize"
+        section: "PHP"
+        value: "10M"
