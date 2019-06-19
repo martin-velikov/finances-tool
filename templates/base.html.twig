@@ -17,6 +17,9 @@
             {% endif %}
             {% if app.user %}
             <li>
+                <a href="{{ path('show_user_profile') }}">Profile</a>
+            </li>
+            <li>
                 <a href="{{ path('logout') }}">Logout</a>
             </li>
             {% endif %}
