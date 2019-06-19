@@ -1,0 +1,19 @@
+services:
+    app.test.decorating_client:
+        class: App\Tests\Client
+        decorates: test.client
+        parent: test.client
+        public: false
+
+    App\Tests\Fixture\Definition\:
+        resource: '../../../tests/Fixture/Definition/*'
+        public: true
+        autowire: true
+        tags:
+            - { name: app.fixture_definition }
+
+    App\Tests\Fixture\FixtureFactory:
+        autowire: true
+        public: true
+        calls:
+            - ['persistOnGet', [true]]
