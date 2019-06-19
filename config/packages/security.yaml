@@ -1,12 +1,35 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
     providers:
-        in_memory: { memory: ~ }
+        db_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+
+    role_hierarchy:
+        ROLE_USER:  []
+        ROLE_ADMIN: [ROLE_USER]
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            form_login:
+                login_path: login
+                check_path: /login
+                username_parameter: "login[username]"
+                password_parameter: "login[password]"
+                provider: db_provider
+                default_target_path: login
+            logout_on_user_change: true
+            logout:
+                path: logout
+                target: login
 
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
