@@ -1,5 +1,6 @@
 parameters:
     locale: 'en'
+    app_id: '0f84f49980364d2abceff8f276d4f58b'
 
 services:
     _defaults:
@@ -18,3 +19,6 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\OpenExchangeRateApi\OpenExchange:
+        arguments: ['%app_id%']

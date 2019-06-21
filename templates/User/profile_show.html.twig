@@ -10,5 +10,20 @@
     <span>My number: {{ app.user.phone }}</span><br>
     <span>Email: {{ app.user.email }}</span><br>
 
+    {% if latest is defined %}
+        <table>
+            {% for currency, rate in latest %}
+                <tr>
+                    <td>{{ currency }}</td>
+                    <td>{{ rate }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
     <a href="{{ path('edit_user_profile') }}">Edit profile</a><br>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('build/exchangeRates.js') }}"></script>
 {% endblock %}
