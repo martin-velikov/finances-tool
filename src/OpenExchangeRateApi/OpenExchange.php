@@ -13,7 +13,9 @@ class OpenExchange
     public function getRates(){
         $app_id = $this->app_id;
         $file = "latest.json";
-        header("Content-Type: application/json");
+        if (!headers_sent()) {
+            header("Content-Type: application/json");
+        }
         $json = file_get_contents("http://openexchangerates.org/api/{$file}?app_id={$app_id}");
         $obj = json_decode($json);
         $rate_container = array();

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface, \Serializable
@@ -41,9 +43,15 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
 
+    /**
+     * @var Rates[]|ArrayCollection
+     */
+    private $rates;
+
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
+        $this->rates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,6 +122,23 @@ class User implements UserInterface, \Serializable
     public function removeRole($role)
     {
         $this->roles = array_diff($this->roles, [$role]);
+    }
+
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRates($rate): void
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates->add($rate);
+        }
+    }
+
+    public function removeRates($rate)
+    {
+        $this->rates->removeElement($rate);
     }
 
     public function getSalt()

@@ -2,6 +2,7 @@
 
 namespace App\Tests\Fixture\Definition;
 
+use App\Entity\Rates;
 use App\Entity\User;
 use App\Tests\Fixture\ApplyValues;
 use App\Tests\Fixture\FixtureDefinitionInterface;
@@ -31,6 +32,7 @@ class UserFixtureDefinition implements FixtureDefinitionInterface
             'phone' => FieldDef::sequence('0888888888'),
             'email' => FieldDef::sequence('user%d@mail.com'),
             'roles' => ['ROLE_USER'],
+            'rates' => FieldDef::reference(Rates::class),
         ];
     }
 
