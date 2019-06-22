@@ -12,5 +12,10 @@
         <field name="password" />
         <field name="phone" nullable="true" />
         <field name="roles" type="array" />
+        <many-to-many field="rates" target-entity="Rates" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

@@ -11,14 +11,16 @@
     <span>Email: {{ app.user.email }}</span><br>
 
     {% if latest is defined %}
-        <table>
-            {% for currency, rate in latest %}
-                <tr>
-                    <td>{{ currency }}</td>
-                    <td>{{ rate }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <a href="{{ path('save_rates') }}" id="saveRates">Save rates</a>
+            <table>
+                {% for currency, rate in latest %}
+                    <tr>
+                        <td>{{ currency }}</td>
+                        <td>{{ rate }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </form>
     {% endif %}
 
     <a href="{{ path('edit_user_profile') }}">Edit profile</a><br>
