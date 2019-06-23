@@ -17,7 +17,6 @@ class RatesFixtureDefinition implements FixtureDefinitionInterface
     public function getFieldDefs(): array
     {
         return [
-            'id' => FieldDef::sequence('%d'),
             'rates' => [],
         ];
     }

@@ -16,7 +16,6 @@ class SingleRateTest extends DatabaseWebTestCase
         $this->user = $factory->get(User::class);
         $rate = $factory->get(Rates::class);
         $this->user->addRates($rate);
-        $this->getManager()->flush($this->user);
     }
 
     public function testUserShouldBeAbleToAccessHisSavedRates()
