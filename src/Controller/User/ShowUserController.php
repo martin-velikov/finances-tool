@@ -2,7 +2,6 @@
 
 namespace App\Controller\User;
 
-use App\Entity\Rates;
 use App\OpenExchangeRateApi\OpenExchange;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

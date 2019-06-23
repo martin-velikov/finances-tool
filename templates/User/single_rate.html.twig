@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ rates.createdAt|date("d/m/Y") }}'s rate</h1>
+    <form action="{{ path('delete_rate', {id: rates.id}) }}" method="post">
+        <table>
+            {% for currency, rate in rates.rates %}
+                <tr>
+                    <td>{{ currency }}</td>
+                    <td>{{ rate }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <button type="submit">Delete rate</button>
+    </form>
+
+    <a href="{{ path('show_user_profile') }}">Back to profile</a>
+{% endblock %}
