@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+<h1>{{ app.user.username }}'s saved rates</h1>
+{% for rate in userRates %}
+    <a href="{{ path('single_rate'), {id: rate.id} }}">View rate from {{ rate.createdAt|date("d/m/Y") }}</a>
+{% endfor %}
+
+<a href="{{ path('show_user_profile') }}">Back to profile</a>
