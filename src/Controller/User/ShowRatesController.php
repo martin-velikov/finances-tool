@@ -13,7 +13,7 @@ class ShowRatesController extends AbstractController
      */
     public function __invoke(Request $request): Response
     {
-        return $this->render('User/profile_show.html.twig', [
+        return $this->render('User/show_rates.html.twig', [
             'userRates' => $this->getUser()->getRates(),
         ]);
     }

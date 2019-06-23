@@ -34,6 +34,7 @@ class SaveRatesTest extends DatabaseWebTestCase
 
         $client->request('POST', '/profile/save');
         $client->followRedirect();
+        // make second request to see if it's going to save again
         $client->request('POST', '/profile/save');
         $client->followRedirect();
 
