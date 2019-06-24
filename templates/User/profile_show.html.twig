@@ -30,9 +30,12 @@
             </table>
     {% endif %}
 
+    <div id="chart" style="height: 5000px"></div>
+
     <a href="{{ path('edit_user_profile') }}">Edit profile</a><br>
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('build/dataTables.js') }}"></script>
+    <script src="{{ asset('build/anyChart.js') }}"></script>
 {% endblock %}
