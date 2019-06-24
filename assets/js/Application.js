@@ -1,5 +1,6 @@
 import DataTables from "./DataTables/DataTables";
 import '../css/main.scss'
+import AnyChart from "./AnyChart/AnyChart";
 
 export default class Application {
     start() {
@@ -14,5 +15,6 @@ export default class Application {
 
     static onDomReady() {
         new DataTables().init();
+        new AnyChart().init();
     }
 }

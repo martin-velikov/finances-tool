@@ -9,6 +9,7 @@ Encore
     .setPublicPath('/build')
     .addEntry('main', './assets/js/main.js')
     .addEntry('dataTables', './assets/js/DataTables/DataTables.js')
+    .addEntry('anyChart', './assets/js/AnyChart/AnyChart.js')
     .disableSingleRuntimeChunk()
     .enableSassLoader()
 ;
