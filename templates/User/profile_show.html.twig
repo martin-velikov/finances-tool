@@ -12,15 +12,27 @@
 
     {% if latest is defined %}
         <a href="{{ path('save_rates') }}" id="saveRates">Save rates</a>
-            <table>
-                {% for currency, rate in latest %}
+            <table id="rates" class="table table-striped table-bordered" data-rates={{ latest|json_encode|raw }}>
+                <thead>
                     <tr>
-                        <td>{{ currency }}</td>
-                        <td>{{ rate }}</td>
+                        <th>Currency</th>
+                        <th>Rate</th>
                     </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for currency, rate in latest %}
+                        <tr>
+                            <td>{{ currency }}</td>
+                            <td>{{ rate }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
     {% endif %}
 
     <a href="{{ path('edit_user_profile') }}">Edit profile</a><br>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/dataTables.js') }}"></script>
 {% endblock %}

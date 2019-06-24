@@ -1,3 +1,6 @@
+import DataTables from "./DataTables/DataTables";
+import '../css/main.scss'
+
 export default class Application {
     start() {
         if ('loading' === document.readyState) {
@@ -10,6 +13,6 @@ export default class Application {
     }
 
     static onDomReady() {
-
+        new DataTables().init();
     }
 }

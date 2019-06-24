@@ -3,17 +3,29 @@
 {% block body %}
     <h1>{{ rates.createdAt|date("d/m/Y") }}'s rate</h1>
     <form action="{{ path('delete_rate', {id: rates.id}) }}" method="post">
-        <table>
-            {% for currency, rate in rates.rates %}
-                <tr>
-                    <td>{{ currency }}</td>
-                    <td>{{ rate }}</td>
-                </tr>
-            {% endfor %}
+        <table id="rates" class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Rate</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for currency, rate in rates.rates %}
+                    <tr>
+                        <td>{{ currency }}</td>
+                        <td>{{ rate }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
 
         <button type="submit">Delete rate</button>
     </form>
 
     <a href="{{ path('show_user_profile') }}">Back to profile</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/dataTables.js') }}"></script>
 {% endblock %}
