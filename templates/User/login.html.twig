@@ -3,18 +3,25 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    <section>
+    <div class="container">
+        <h1 class="mt-5 text-center">Login</h1>
+
         {% if app.user %}
             <p>Logged in successfully!</p>
         {% else %}
-            {% if error %}
-                <div><p>{{ error.messageKey|trans(error.messageData, 'security') }}</p></div>
-            {% endif %}
-            {{ form_start(form) }}
-                {{ form_widget(form) }}
-
-                <button type="submit">Login</button>
-            {{ form_end(form) }}
+        {% if error %}
+            <div><p>{{ error.messageKey|trans(error.messageData, 'security') }}</p></div>
         {% endif %}
-    </section>
+
+        {{ form_start(form, {'attr': { 'class': 'form' }}) }}
+        {{ form_widget(form) }}
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        {{ form_end(form) }}
+
+        <div class="row text-register">
+            <span>Don't have an account?</span><a href="{{ path('register') }}">Register!</a>
+        </div>
+        {% endif %}
+    </div>
 {% endblock %}
