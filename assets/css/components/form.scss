@@ -1,0 +1,22 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 35%;
+    margin: 0 auto;
+
+    .btn {
+        width: 100px;
+    }
+}
+
+.text-register {
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 991px) {
+    .form {
+        max-width: 100%;
+    }
+}
