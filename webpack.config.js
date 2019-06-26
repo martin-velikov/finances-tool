@@ -10,6 +10,8 @@ Encore
     .addEntry('main', './assets/js/main.js')
     .addEntry('dataTables', './assets/js/DataTables/DataTables.js')
     .addEntry('anyChart', './assets/js/AnyChart/AnyChart.js')
+    .addEntry('anyChartSingle', './assets/js/AnyChart/AnyChartSingle.js')
+    .addEntry('dataTablesSingle', './assets/js/DataTables/DataTablesSingle.js')
     .disableSingleRuntimeChunk()
     .enableSassLoader()
     .enablePostCssLoader()
