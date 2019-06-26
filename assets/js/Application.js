@@ -1,3 +1,4 @@
+require('bootstrap');
 import '../css/main.scss'
 import DataTables from "./DataTables/DataTables";
 import AnyChart from "./AnyChart/AnyChart";
