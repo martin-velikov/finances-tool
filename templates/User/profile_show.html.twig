@@ -14,24 +14,9 @@
         <a class="btn btn-primary anchor-btn" href="{{ path('edit_user_profile') }}">Edit profile</a><br>
     </div>
     <div class="container">
-        {% if latest is defined %}
-            <table id="rates" class="table table-striped table-bordered w-50" data-rates={{ latest|json_encode|raw }}>
-                <thead>
-                <tr>
-                    <th>Currency</th>
-                    <th>Rate</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for currency, rate in latest %}
-                    <tr>
-                        <td>{{ currency }}</td>
-                        <td>{{ rate }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        {% endif %}
+        <h1>Today's rates</h1>
+
+        <table id="rates" class="table table-striped table-bordered"></table>
 
         <a class="btn btn-primary anchor-btn" href="{{ path('save_rates') }}" id="saveRates">Save rates</a>
     </div>

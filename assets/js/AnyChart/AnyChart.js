@@ -1,18 +1,15 @@
 var anychart = require('anychart');
 
-export default class  {
-    init() {
-        var chart = anychart.bar();
-        if (typeof rates !== 'undefined') {
-            var data = JSON.parse(rates.dataset.rates);
-            var dataToMiniArrays = Object.keys(data).map(function (key) {
-                return [String(key), data[key]];
-            });
-            var series = chart.bar(dataToMiniArrays);
-            chart.barGroupsPadding(0);
-
-            chart.container('chart');
-            chart.draw();
-        }
+$.ajax({
+    url: "https://openexchangerates.org/api/latest.json?app_id=0f84f49980364d2abceff8f276d4f58b",
+    data: { rates: "rates" },
+    success: function(data){
+        let dataToMiniArrays = Object.keys(data.rates).map(function (key) {
+            return [String(key), data.rates[key]];
+        });
+        let chart = anychart.bar();
+        let series = chart.bar(dataToMiniArrays);
+        chart.container('chart');
+        chart.draw();
     }
-}
+});
