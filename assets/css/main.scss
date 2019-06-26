@@ -2,9 +2,18 @@
 @import "components/header";
 @import "components/container";
 @import "components/form";
+@import "~datatables.net-jqui";
 
 body {
     background: url('img/background.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
+}
+
+.container-profile {
+    margin-top: -50px;
+}
+
+.table {
+    background-color: #fff;
 }

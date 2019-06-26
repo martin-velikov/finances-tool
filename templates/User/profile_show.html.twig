@@ -3,36 +3,42 @@
 {% block title %}My profile{% endblock %}
 
 {% block body %}
-    <h2>My profile</h2>
+    <div class="container container-profile">
+        <h2>My profile</h2>
 
-    <span>Username: {{ app.user.username }}</span><br>
-    <span>Name: {{ app.user.name }}</span><br>
-    <span>My number: {{ app.user.phone }}</span><br>
-    <span>Email: {{ app.user.email }}</span><br>
+        <span>Username: {{ app.user.username }}</span><br>
+        <span>Name: {{ app.user.name }}</span><br>
+        <span>My number: {{ app.user.phone }}</span><br>
+        <span>Email: {{ app.user.email }}</span><br>
 
-    {% if latest is defined %}
-        <a href="{{ path('save_rates') }}" id="saveRates">Save rates</a>
-            <table id="rates" class="table table-striped table-bordered" data-rates={{ latest|json_encode|raw }}>
+        <a class="btn btn-primary anchor-btn" href="{{ path('edit_user_profile') }}">Edit profile</a><br>
+    </div>
+    <div class="container">
+        {% if latest is defined %}
+            <table id="rates" class="table table-striped table-bordered w-50" data-rates={{ latest|json_encode|raw }}>
                 <thead>
-                    <tr>
-                        <th>Currency</th>
-                        <th>Rate</th>
-                    </tr>
+                <tr>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                </tr>
                 </thead>
                 <tbody>
-                    {% for currency, rate in latest %}
-                        <tr>
-                            <td>{{ currency }}</td>
-                            <td>{{ rate }}</td>
-                        </tr>
-                    {% endfor %}
+                {% for currency, rate in latest %}
+                    <tr>
+                        <td>{{ currency }}</td>
+                        <td>{{ rate }}</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
-    {% endif %}
+        {% endif %}
 
-    <div id="chart" style="height: 5000px"></div>
+        <a class="btn btn-primary anchor-btn" href="{{ path('save_rates') }}" id="saveRates">Save rates</a>
+    </div>
 
-    <a href="{{ path('edit_user_profile') }}">Edit profile</a><br>
+    <div class="container">
+        <div id="chart" style="height: 5000px"></div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
