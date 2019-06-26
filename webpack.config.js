@@ -12,6 +12,7 @@ Encore
     .addEntry('anyChart', './assets/js/AnyChart/AnyChart.js')
     .disableSingleRuntimeChunk()
     .enableSassLoader()
+    .enablePostCssLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();
