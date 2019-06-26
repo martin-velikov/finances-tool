@@ -18,8 +18,8 @@ endif
 .PHONY: assets
 assets: node_modules public/build
 
-node_modules: yarn.lock
-	timeout -s KILL 240s yarn install --ignore-engines && touch $@
+node_modules: package.json
+	npm install
 
 public/build: $(JS_OBJS) $(CSS_OBJS)
 ifeq ($(NODE_ENV),production)
@@ -59,29 +59,3 @@ lint:
 .PHONY: test
 test:
 	vendor/bin/simple-phpunit
-			
-.PHONY: codeship-install
-codeship-install:
-	set -e
-	# Setup PHP
-	phpenv local $(PHP_VERSION)
-	pear config-set cache_dir ${HOME}/cache/pear/cache
-	printf "\n" | pecl install apcu
-
-	# Install AST PHP extension
-	git clone --branch 'v0.1.6' --single-branch --depth 1 git@github.com:nikic/php-ast.git
-	cd php-ast && phpize && ./configure && make && make install
-	echo "extension=ast.so" >> /home/rof/.phpenv/versions/$(PHP_VERSION)/etc/php.ini
-
-	# Disable xdebug
-	rm -f /home/rof/.phpenv/versions/$(PHP_VERSION)/etc/conf.d/xdebug.ini
-	phpenv rehash
-
-.PHONY: codeship-setup
-codeship-setup: codeship-install vendor assets cache-clear deploy
-
-.PHONY: codeship-lint
-codeship-lint: lint
-
-.PHONY: codeship-test
-codeship-test: test
