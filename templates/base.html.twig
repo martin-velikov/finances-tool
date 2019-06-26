@@ -45,11 +45,14 @@
             </nav>
         </header>
 
-        {% for message in app.flashes('notice') %}
-            <div>{{ message }}</div>
-        {% endfor %}
+        <main class="main">
+            {% for message in app.flashes('notice') %}
+                <div class="container">{{ message }}</div>
+            {% endfor %}
 
-        {% block body %}{% endblock %}
+            {% block body %}{% endblock %}
+        </main>
+
         <script src="{{ asset('build/main.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
