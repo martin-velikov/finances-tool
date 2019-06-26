@@ -5,7 +5,7 @@ require( 'datatables.net-buttons/js/buttons.html5.js' );
 
 export default class {
     init() {
-        $('#rates').DataTable({
+        var table = $('#rates').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 {
@@ -18,6 +18,8 @@ export default class {
                 },
             ],
             "searching": false,
-        } );
+        });
+        table.buttons().container()
+            .appendTo('#rates_wrapper .col-md-6:eq(0)');
     }
 }
