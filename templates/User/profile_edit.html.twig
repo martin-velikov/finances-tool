@@ -3,11 +3,13 @@
 {% block title %}My profile{% endblock %}
 
 {% block body %}
-    <h2>My profile</h2>
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+    <div class="container container-profile">
+        <h2>My profile</h2>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
 
-        <button type="submit">Edit profile</button>
-    {{ form_end(form) }}
-    <a href="{{ path('show_user_profile') }}">Back to profile</a>
+            <button class="btn btn-primary" type="submit">Edit profile</button>
+        {{ form_end(form) }}
+        <a class="btn btn-primary anchor-btn" href="{{ path('show_user_profile') }}">Back to profile</a>
+    </div>
 {% endblock %}
