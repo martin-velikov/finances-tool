@@ -25,3 +25,16 @@
         {% endif %}
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        $("form").on("submit", function(e){
+            var $form = $(e.currentTarget);
+            $.ajax({
+                url: $form.attr('action'),
+                method: 'POST',
+                data: $form.serialize()
+            });
+        })
+    </script>
+{% endblock %}

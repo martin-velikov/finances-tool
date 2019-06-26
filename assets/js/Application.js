@@ -2,6 +2,8 @@ require('bootstrap');
 import '../css/main.scss'
 import DataTables from "./DataTables/DataTables";
 import AnyChart from "./AnyChart/AnyChart";
+var $ = require("jquery");
+window.$ = window.jQuery = $;
 
 export default class Application {
     start() {
