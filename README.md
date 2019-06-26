@@ -11,3 +11,7 @@
 - copy .vagrantuser file in vagrant folder
 - vagrant up
 - vagrant ssh
+- make all
+
+### Tests:
+- php ./bin/phpunit
