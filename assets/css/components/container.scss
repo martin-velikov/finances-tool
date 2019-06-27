@@ -22,3 +22,14 @@
     margin-top: -50px;
     text-align: center;
 }
+
+@media(max-width: 991px) {
+    .main .container {
+        .dataTables_paginate {
+            white-space: normal;
+        }
+        .dataTables_wrapper {
+            white-space: normal;
+        }
+    }
+}
