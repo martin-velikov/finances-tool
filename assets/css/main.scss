@@ -18,3 +18,9 @@ body {
 .table {
     background-color: #fff;
 }
+
+@media(max-width: 991px) {
+    .table {
+        width: 100%;
+    }
+}
